@@ -7,8 +7,6 @@ module.exports = {
       token = token.slice(7);
       verify(token, process.env.JWT_KEY, (err, decoded) => {
         if (err) {
-          console.log(token);
-          console.log(err);
           return res.status(500).json({
             success: 0,
             message: 'Invalid Token'
@@ -19,7 +17,7 @@ module.exports = {
     } else {
       res.status(500).json({
         success: 0,
-        message: 'Access denied!'
+        message: 'Access denied! unauthorized User'
       });
     }
   }
